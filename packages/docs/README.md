@@ -1,11 +1,3 @@
-# `docs`
+# hdot: documentation site
 
-> TODO: description
-
-## Usage
-
-```
-const docs = require('docs');
-
-// TODO: DEMONSTRATE API
-```
+WIP
