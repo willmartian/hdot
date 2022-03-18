@@ -1,6 +1,6 @@
 {
   "name": "@hdot/validate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Validate HTML attributes based on the HTML spec",
   "author": "willmartian <accounts@willmartian.com>",
   "homepage": "https://github.com/willmartian/hdot",
@@ -28,6 +28,6 @@
     "@markuplint/html-spec": "^2.4.0",
     "@markuplint/ml-spec": "^2.0.1",
     "@markuplint/types": "^2.0.0",
-    "hdot": "^0.0.1"
+    "hdot": "^0.0.2"
   }
 }

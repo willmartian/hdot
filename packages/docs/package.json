@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "> TODO: description",
   "author": "willmartian <accounts@willmartian.com>",
   "homepage": "",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
-    "@hdot/validate": "^0.0.1",
-    "hdot": "^0.0.1"
+    "@hdot/validate": "^0.0.2",
+    "hdot": "^0.0.2"
   }
 }
