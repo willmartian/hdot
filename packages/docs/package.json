@@ -1,6 +1,6 @@
 {
   "private": true,
-	"version": "0.0.0",
+  "version": "0.0.1",
   "description": "> TODO: description",
   "author": "willmartian <accounts@willmartian.com>",
   "homepage": "",
@@ -14,12 +14,12 @@
     "lib"
   ],
   "scripts": {
-		"start": "npx @11ty/eleventy --serve",
-		"build": "npx @11ty/eleventy"
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
-		"@hdot/validate": "^0.0.0",
-    "hdot": "^0.0.0"
+    "@hdot/validate": "^0.0.1",
+    "hdot": "^0.0.1"
   }
 }
