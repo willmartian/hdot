@@ -5,6 +5,9 @@
   "author": "willmartian <accounts@willmartian.com>",
   "homepage": "",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "lib/validate.js",
   "directories": {
     "lib": "lib",
