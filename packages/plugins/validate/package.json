@@ -1,0 +1,26 @@
+{
+  "name": "@hdot/validate",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "willmartian <accounts@willmartian.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/validate.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "tsc": "tsc",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@markuplint/html-spec": "^2.4.0",
+    "@markuplint/ml-spec": "^2.0.1",
+    "@markuplint/types": "^2.0.0",
+    "hdot": "^0.0.0"
+  }
+}
