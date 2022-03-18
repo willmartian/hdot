@@ -1,4 +1,4 @@
-# hdot
+# hdot (WIP!)
 
 A sensible way to write HTML in JavaScript.
 * **Type-safe.** Helps you follow the HTML spec.
