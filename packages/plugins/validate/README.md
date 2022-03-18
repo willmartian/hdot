@@ -1,4 +1,4 @@
-# "Attribute Validation"
+# hdot plugin: Attribute Validation 
 
 Automatically type check HTML attributes against the HTML spec, powered by [markuplint](https://github.com/markuplint/markuplint).
 
