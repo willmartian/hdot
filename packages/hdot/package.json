@@ -19,11 +19,13 @@
   ],
   "scripts": {
     "tsc": "tsc",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "uvu -r tsm __tests__"
   },
   "devDependencies": {
     "@markuplint/html-spec": "^2.4.0",
     "@markuplint/ml-spec": "^2.0.1",
-    "@types/node": "^17.0.21"
+    "@types/node": "^17.0.21",
+    "tsm": "^2.2.1",
+    "uvu": "^0.5.3"
   }
 }
