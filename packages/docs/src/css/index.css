@@ -1,0 +1,70 @@
+:root {
+  --lightgray: #e0e0e0;
+  --gray: #C0C0C0;
+  --darkgray: #272822;
+  --navy: #17050F;
+  --blue: #082840;
+  --white: #fff;
+}
+
+/* Global stylesheet */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, system-ui, sans-serif;
+  color: var(--darkgray);
+  background-color: var(--white);
+}
+
+body {
+  padding: 2em;
+}
+
+p {
+  line-height: 1.45;
+}
+
+pre,
+code {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+code {
+  display: block;
+  max-width: max-content;
+}
+
+main, header, footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-left: 5vw;
+}
+
+
+
+header, footer {
+  border: 2px solid black;
+  border-radius: 1rem;
+  max-width: max-content;
+  box-shadow: 8px 8px var(--darkgray);
+  padding: 1rem;
+}
+
+aside {
+  border: 1px dashed black;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  max-width: max-content;
+}
+
+aside > p {
+  margin-bottom: 0;
+}

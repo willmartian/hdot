@@ -1,3 +1,0 @@
-# hdot: documentation site
-
-WIP
