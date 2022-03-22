@@ -15,14 +15,14 @@
   "main": "lib/validate.js",
   "directories": {
     "lib": "lib",
-    "test": "__tests__"
+    "test": "test"
   },
   "files": [
     "lib"
   ],
   "scripts": {
     "tsc": "tsc",
-    "test": "uvu -r tsm __tests__"
+    "test": "uvu -r tsm test"
   },
   "dependencies": {
     "@markuplint/html-spec": "^2.4.0",
