@@ -1,6 +1,6 @@
-import { test } from 'uvu';
-import * as assert from 'uvu/assert';
+import { test } from "uvu";
+import * as assert from "uvu/assert";
 
-test('basic', () => {
+test("basic", () => {
   // TODO
 });

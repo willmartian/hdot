@@ -1,22 +1,9 @@
-const { h } = require('hdot');
+//@ts-check
+const { h } = require("hdot");
 
-const data = {
-  items: [
-    'Possums',
-    'are',
-    'cute'
-  ]
-}
-
-const myList = (items) => h.ul(
-	items.map(
-  	item => h.li(item)
-	)
+const render = (data) => h.html(
+  h.h1`hdot`, 
+  h.p`A better way to write HTML in JavaScript.`
 );
 
-const render = ({ items }) => h.html(
-  h.h1`Hello Eleventy!`,
-  myList(items)
-)
-
-module.exports = { data, render };
+module.exports = { render };

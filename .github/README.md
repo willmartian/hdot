@@ -1,24 +1,22 @@
 # hdot (WIP!)
 
 A sensible way to write HTML in JavaScript.
-* **Type-safe.** Helps you follow the HTML spec.
-* **Terse.** Almost character for character with plain HTML.
-* **Buildless.** Runs in the browser, the server, the gym.
-* **Tiny.** 791 bytes (minified and gzipped). No dependencies.
+
+- **Type-safe.** Helps you follow the HTML spec.
+- **Terse.** Almost character for character with plain HTML.
+- **Buildless.** Runs in the browser, the server, the gym.
+- **Tiny.** 791 bytes (minified and gzipped). No dependencies.
   [Size Limit](https://github.com/ai/size-limit) controls the size.
 
-\* *not affiliated with the Hawaii Department of Transportation*
+\* _not affiliated with the Hawaii Department of Transportation_
 
 ## Example
 
 ```js
-  import { h } from 'hdot';
+import { h } from "hdot";
 
-  const html = h.div(
-    h.h1`Hello world`,
-    h.input.type('button').value`Click me!`
-  )
+const html = h.div(h.h1`Hello world`, h.input.type("button").value`Click me!`);
 
-  console.log(html);
-  // --> `<div><h1>Hello world</h1><input type="button" value="Click me!"></div>`
+console.log(html);
+// --> `<div><h1>Hello world</h1><input type="button" value="Click me!"></div>`
 ```
