@@ -1,0 +1,16 @@
+{
+  "title": "hdot",
+  "subtitle": "write safer HTML",
+  "description": "A type-safe HTML template engine for JavaScript and the Jamstack.",
+  "image": "hdotPreview.png",
+  "//image_source": "https://carbon.now.sh/?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=panda-syntax&wt=none&l=application%2Ftypescript&width=600&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=17px&lh=133%25&si=false&es=2x&wm=false&code=import%2520h%2520from%2520%2522hdot%2522%253B%2520%250A%250Ah.div%28%250A%2520%2520h.h1%2560hdot%2560%252C%250A%2520%2520h.p%2560Type-safe%2520HTML%2520templates%2560%252C%250A%2520%2520h.a.href%28%2522https%253A%252F%252Fhdot.dev%2522%29%2560Learn%2520more.%2560%2520%250A%29%253B%2520",
+  "image:alt": "Code snippet of the following: import h from 'hdot'; h.div(h.h1`hdot`, h.p`Type-safe HTML templates`, h.a.href('https://hdot.dev')`Learn more.`);",
+  "author": {
+    "name": "will martian",
+    "url": "https://willmartian.com",
+    "twitter_username": "@will_martian",
+    "twtter_url": "https://twitter.com/will_martian",
+    "github_username": "willmartian",
+    "github_url": "https://github.com/willmartian"
+  }
+}
