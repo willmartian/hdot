@@ -14,14 +14,14 @@ A sensible way to write HTML in JavaScript.
 ## [Read the docs](https://hdot.dev/)
 
 ```js
-import h from "hdot"; 
+import { h } from "hdot"; 
 
 h.div(
   h.h1`hdot`,
   h.p`Type-safe HTML templates`,
-  h.a.href("https://hdot.dev")`Learn more.`
+  h.a.href("https://hdot.dev")`Read the docs.`
 );
 ```
 ```html
-<div><h1>hdot</h1><p>Type-safe HTML templates</p><a href="https://hdot.dev">Learn more.</a></div>
+<div><h1>hdot</h1><p>Type-safe HTML templates</p><a href="https://hdot.dev">Read the docs.</a></div>
 ```

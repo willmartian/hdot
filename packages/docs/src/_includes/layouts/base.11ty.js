@@ -21,8 +21,8 @@ function render(data) {
       h.meta["property"]("og:title").content(data.meta.subtitle),
       h.meta["property"]("og:description").content(data.meta.description),
       h.meta["property"]("og:image").content(data.meta.image),
-      h.meta["property"]("og:image:width").content("1200"),
-      h.meta["property"]("og:image:height").content("688"),
+      h.meta["property"]("og:image:width").content("1232"),
+      h.meta["property"]("og:image:height").content("700"),
       h.meta["property"]("og:image:alt").content(data.meta["image:alt"]),
       
       // Twitter
