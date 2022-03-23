@@ -1,40 +1,27 @@
-import type { ElementMap } from "./types/htmlSpecTypes";
 
-export type HTMLElement<TagName extends keyof ElementMap> = {
-  (...children: ElementMap[TagName]["allowedChildren"][]): string;
-  children: (...children: string[]) => string;
-  tagName: string;
-  // change this to an object that is built, that is serialized properly by toString
-  htmlString: string;
-  [key: `data${string}`]: (
-    val: string | boolean | number
-  ) => HTMLElement<TagName>;
-} & ElementMap[TagName];
+import { isTemplateParam, rawTemplate } from "./utils";
+import type { Plugin, HTML } from "./types";
 
-export type HTML = {
-  [TagName in keyof ElementMap]-?: HTMLElement<TagName>;
-} & {
-  _plugins: Plugin[];
-};
+class PrivateState {
+  private _plugins: Plugin[] = [];
+}
 
-const initial = {
-  _plugins: [],
-} as unknown as HTML;
+type H = typeof PrivateState & HTML;
 
-export const h = new Proxy(initial, {
+export const h: H = new Proxy(new PrivateState() as unknown as H, {
   get(target, key, reciever) {
-    if (typeof key !== "string" || key === "toString" || key.startsWith("_")) {
+    if (typeof key !== "string" || key === "toString" || key.startsWith("#")) {
       return Reflect.get(target, key, reciever);
     }
-    return new Hdot(key as keyof ElementMap, target);
+    return new Hdot(key, target);
   },
 });
 
 class Hdot extends Function {
-  tagName: string;
-  htmlString: string = "";
+  private tagName: string;
+  private htmlString: string = "";
 
-  constructor(tagName: keyof ElementMap, h: HTML) {
+  constructor(tagName, h: HTML) {
     super();
     this.tagName = tagName;
     this.htmlString = tagName + " ";
@@ -44,7 +31,8 @@ class Hdot extends Function {
         if (
           typeof key !== "string" ||
           key === "toString" ||
-          key === "htmlString"
+          key === "htmlString" ||
+          key === "raw"
         ) {
           return Reflect.get(target, key, reciever);
         }
@@ -57,8 +45,9 @@ class Hdot extends Function {
             k = "data-" + k.slice(4);
           }
           k = k.toLowerCase();
+
           let a = args;
-          for (const plugin of h._plugins) {
+          for (const plugin of h['_plugins']) {
             if (plugin.attribute) {
               const [pluginKey, pluginArgs] = plugin.attribute(tagName, k, a);
               k = pluginKey;
@@ -86,23 +75,28 @@ class Hdot extends Function {
     return attributeString + " ";
   }
 
-  toString(children: any[] = []) {
-    return `<${this.htmlString.trim()}>${children.join("")}</${
+  toString(...children: any[]) {
+    let args: string | any[] = children.join('');
+    if (isTemplateParam(...children)) {
+      args = [rawTemplate(children[0], ...children.slice(1))];
+    }
+    console.log('children in toString', args, children[0]?.raw, isTemplateParam(...children));
+    return `<${this.htmlString.trim()}>${args}</${
       this.htmlString.split(" ")[0]
     }>`;
   }
 
-  #call(...args: any[]) {
-    return this.toString(args);
+  #call(...children: any[]) {
+    // Check if this is being called as a tag function.
+    let args: string | any[] = children;
+    if (isTemplateParam(...children)) {
+      args = [rawTemplate(children[0], ...children.slice(1))];
+    }
+    console.log('children in call', args);
+    return this.toString(...children);
   }
 }
 
-export type Plugin = {
-  attribute?: (tagName: string, key: string, args: any) => [string, any];
-  // TODO
-  serialize?: (tagName: string, args: any[]) => any[];
-};
-
-export const setPlugins = (h: HTML, plugins: Plugin[]) => {
-  h._plugins = plugins;
+export const setPlugins = (h: H, plugins: Plugin[]) => {
+  h['_plugins'] = plugins;
 };

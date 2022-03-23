@@ -1,6 +1,6 @@
 import { test } from "uvu";
 import * as assert from "uvu/assert";
-import { h } from "..";
+import { h } from "../src/hdot";
 
 test("basic", () => {
   assert.equal(h.div(), "<div></div>");
@@ -18,6 +18,9 @@ test("children", () => {
     h.div(h.div, h.div(), h.div.toString(), h.div().toString(), h.div``),
     "<div><div></div><div></div><div></div><div></div><div></div></div>"
   );
+  assert.equal(h.div`Hello ${h.span`world!`}`, '<div>Hello <span>world!</span></div>')
+  assert.equal(h.div(`Hello ${h.span`world!`}`), '<div>Hello <span>world!</span></div>')
+  assert.equal(h.div(`Hello ${h.span}`), '<div>Hello <span></span></div>')
 });
 
 test("attributes", () => {

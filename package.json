@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "size": "size-limit",
-    "test": "npm run size && lerna run test",
+    "test": "npm run tsc && npm run size && lerna run test",
     "tsc": "lerna run tsc"
   }
 }

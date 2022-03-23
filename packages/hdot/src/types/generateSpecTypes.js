@@ -1,8 +1,7 @@
 //@ts-check
 
-/**
- * This file is a mess don't look at it
- */
+// TODO: Clean up this file. It is straight from dumped straight from the brain.
+// Possibly look at code-block-writer as an alternative to string manipulation: https://github.com/dsherret/code-block-writer
 
 const {
   getSpec,
@@ -12,23 +11,18 @@ const {
 const htmlSpecDef = require("@markuplint/html-spec");
 const fs = require("fs");
 
-// /**
-//  * @typedef {import('@markuplint/ml-spec/')} Attribute
-//  */
-
 const htmlSpec = getSpec([htmlSpecDef]);
+const specs = htmlSpec.specs.filter((spec) => !spec.name.includes(":"));
 
-console.log(Object.keys(htmlSpec.def["#globalAttrs"]));
-console.log(getAttrSpecs("a", htmlSpec).filter((att) => !att.deprecated));
-
-const content = [""];
+const content = [
+  `// AUTO-GENERATED FILE`,
+  `import type { DomTypeMap, HTMLElement } from ".";`
+];
 
 const typeMap = [
-  `import { HTMLElement } from "../index";`,
-  `import { DomTypeMap } from "./attributeTypes";`,
   `export type ElementMap = {`,
 ];
-htmlSpec.specs
+specs
   .filter((spec) => !spec.name.includes(":"))
   .forEach((spec) => {
     typeMap.push(
@@ -39,8 +33,7 @@ htmlSpec.specs
 typeMap.push(`}`);
 content.push(typeMap.join("\n"));
 
-htmlSpec.specs
-  .filter((s) => !s.name.includes(":"))
+specs
   .forEach((s) => {
     const spec = {
       name: s.name,
@@ -103,4 +96,4 @@ type TextContent = string | TemplateStringsArray;
 type PhrasingElements = HTMLElement<'p'> | HTMLElement<'div'> | TextContent;
 */
 
-fs.writeFileSync("./src/htmlSpecTypes.ts", content.join("\n"));
+fs.writeFileSync("./src/types/specTypes.ts", content.join("\n"));

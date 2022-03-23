@@ -19,7 +19,8 @@
   ],
   "scripts": {
     "tsc": "tsc",
-    "test": "uvu -r tsm test"
+    "test": "uvu -r tsm test",
+    "generate": "node src/types/generateSpecTypes.js"
   },
   "devDependencies": {
     "@markuplint/html-spec": "^2.4.0",
