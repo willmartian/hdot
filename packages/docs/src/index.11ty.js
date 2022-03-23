@@ -20,9 +20,9 @@ function render(_data) {
       h.p(h.i`hdot`, ` is a type-safe and tiny (~900 bytes) HTML templating language for JavaScript that helps devs write spec compliant and minified HTML.`),
       ...kitchenSink.bind(this)(),
       h.h3`In-editor HTML Documentation`,
-      h.p(`HTML can be complicated; when writing it, it is typical to have docs open in another window.`), 
-      h.p(`Under the hood, hdot uses content from `, h.a.href('https://developer.mozilla.org/en-US/docs/Web/HTML')`MDN Web Docs`, ` and `, h.a.href('https://markuplint.dev/')`markuplint`, ` to automatically create its TypeScript definitions. If you use a IDE that supports type hints, you will see descriptions of elements and attributes when you are authoring them. Your editor will also error if you pass invalid values to attributes, or disallowed children to certain elements.`),
-      h.p`Since this functionality is built into the type definition of hdot rather than the runtime, the library can stay small and fast.`
+      h.p(`HTML can be complicated; when writing it, I often have docs open in another window.`), 
+      h.p(`To support this workflow, hdot uses content from `, h.a.href('https://developer.mozilla.org/en-US/docs/Web/HTML')`MDN Web Docs`, ` and `, h.a.href('https://markuplint.dev/')`markuplint`, ` to automatically generate its TypeScript definitions. If you use a IDE that supports type hints, you will see in-editor documentation of the elements and attributes that you are authoring.`),
+      h.p`(Since this functionality is built into the type definition of hdot rather than the runtime, the library can stay small and fast.)`
     ),
     h.section(
       h.h2`Installation`,
