@@ -2,6 +2,8 @@
 import { isTemplateParam, rawTemplate } from "./utils";
 import type { Plugin, HTML } from "./types";
 
+export type { Plugin, HTML, H }
+
 class PrivateState {
   private _plugins: Plugin[] = [];
 }
@@ -80,19 +82,16 @@ class Hdot extends Function {
     if (isTemplateParam(...children)) {
       args = [rawTemplate(children[0], ...children.slice(1))];
     }
-    console.log('children in toString', args, children[0]?.raw, isTemplateParam(...children));
     return `<${this.htmlString.trim()}>${args}</${
       this.htmlString.split(" ")[0]
     }>`;
   }
 
   #call(...children: any[]) {
-    // Check if this is being called as a tag function.
     let args: string | any[] = children;
     if (isTemplateParam(...children)) {
       args = [rawTemplate(children[0], ...children.slice(1))];
     }
-    console.log('children in call', args);
     return this.toString(...children);
   }
 }
