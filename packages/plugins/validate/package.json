@@ -1,6 +1,6 @@
 {
   "name": "@hdot/validate",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Validate HTML attributes based on the HTML spec",
   "author": "willmartian <accounts@willmartian.com>",
   "homepage": "https://hdot.dev",
@@ -28,7 +28,7 @@
     "@markuplint/html-spec": "^2.4.0",
     "@markuplint/ml-spec": "^2.0.1",
     "@markuplint/types": "^2.0.0",
-    "hdot": "^0.0.3"
+    "hdot": "^0.0.4"
   },
   "devDependencies": {
     "tsm": "^2.2.1",

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "> TODO: description",
   "author": "willmartian <accounts@willmartian.com>",
   "homepage": "",
@@ -19,8 +19,8 @@
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
-    "@hdot/validate": "^0.0.3",
-    "hdot": "^0.0.3",
+    "@hdot/validate": "^0.0.4",
+    "hdot": "^0.0.4",
     "tsm": "^2.2.1",
     "uvu": "^0.5.3"
   }
