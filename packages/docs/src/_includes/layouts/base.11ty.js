@@ -20,7 +20,7 @@ function render(data) {
       h.meta["property"]("og:locale").content("en_US"),
       h.meta["property"]("og:title").content(data.meta.subtitle),
       h.meta["property"]("og:description").content(data.meta.description),
-      h.meta["property"]("og:image").content(this.url(data.meta.image)),
+      h.meta["property"]("og:image").content(data.meta.image),
       h.meta["property"]("og:image:width").content("1200"),
       h.meta["property"]("og:image:height").content("688"),
       h.meta["property"]("og:image:alt").content(data.meta["image:alt"]),
@@ -32,7 +32,7 @@ function render(data) {
       h.meta["property"]("twitter:url").content("https://hdot.dev"),
       h.meta["property"]("twitter:title").content(data.meta.subtitle),
       h.meta["property"]("twitter:description").content(data.meta.description),
-      h.meta["property"]("twitter:image").content(this.url(data.meta.image)),
+      h.meta["property"]("twitter:image").content(data.meta.image),
       h.meta["property"]("twitter:image:alt").content(data.meta["image:alt"]),
       
       // Stylesheets
