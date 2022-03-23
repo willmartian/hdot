@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "Validate HTML attributes based on the HTML spec",
   "author": "willmartian <accounts@willmartian.com>",
-  "homepage": "https://github.com/willmartian/hdot",
+  "homepage": "https://hdot.dev",
   "repository": {
     "type": "git",
     "url": "https://github.com/willmartian/hdot"
