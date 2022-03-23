@@ -5,7 +5,7 @@ A sensible way to write HTML in JavaScript.
 - **Type-safe.** Helps you follow the HTML spec.
 - **Terse.** Almost character for character with plain HTML.
 - **Buildless.** Runs in the browser, the server, the gym.
-- **Tiny.** 791 bytes (minified and gzipped). No dependencies.
+- **Tiny.** ~900 bytes (minified and gzipped). No dependencies.
   [Size Limit](https://github.com/ai/size-limit) controls the size.
 
 \* _not affiliated with the Hawaii Department of Transportation_

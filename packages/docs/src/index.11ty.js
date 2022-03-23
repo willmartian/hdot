@@ -17,7 +17,7 @@ function render(_data) {
   return h.main(
     h.section(
       h.h2`Introduction`,
-      h.p(h.i`hdot`, ` is a type-safe and tiny (~800 bytes) HTML templating language for JavaScript that helps devs write spec compliant and minified HTML.`),
+      h.p(h.i`hdot`, ` is a type-safe and tiny (~900 bytes) HTML templating language for JavaScript that helps devs write spec compliant and minified HTML.`),
       ...kitchenSink.bind(this)(),
       h.h3`In-editor HTML Documentation`,
       h.p(`HTML can be complicated; when writing it, it is typical to have docs open in another window.`), 
