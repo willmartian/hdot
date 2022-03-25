@@ -8,7 +8,7 @@ const data = {
 function kitchenSink() {
   return [h.code(this.highlight('js',
 `h.div.lang('en').class('fun').hidden(true)\`Hello world!\``)),
-    h.code(this.highlight('html',`<div lang="en" class="fun" true>Hello world!</div>`)),
+    h.code(this.highlight('html',`<div lang="en" class="fun" hidden>Hello world!</div>`)),
     h.div.lang('en').class('fun').hidden(true)`Hello world!`
   ];
 }
