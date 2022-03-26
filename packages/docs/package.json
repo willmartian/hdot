@@ -2,7 +2,11 @@
   "private": true,
   "version": "0.0.4",
   "description": "> TODO: description",
-  "author": "willmartian <accounts@willmartian.com>",
+  "author": {
+    "name": "willmartian",
+    "email": "hdot@willmartian.com",
+    "url": "https://willmartian.com"
+  },
   "homepage": "",
   "license": "MIT",
   "main": "lib/docs.js",

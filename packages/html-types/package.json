@@ -2,7 +2,11 @@
   "name": "@hdot/html-types",
   "version": "0.0.1",
   "description": "Type definitions for spec-compliant HTML",
-  "author": "willmartian <accounts@willmartian.com>",
+  "author": {
+    "name": "willmartian",
+    "email": "hdot@willmartian.com",
+    "url": "https://willmartian.com"
+  },
   "homepage": "https://hdot.dev",
   "license": "MIT",
   "main": "html.d.ts",
