@@ -1,0 +1,39 @@
+{
+  "name": "@hdot/component",
+  "version": "0.0.4",
+  "description": "Reactive web component",
+  "author": {
+    "name": "willmartian",
+    "email": "hdot@willmartian.com",
+    "url": "https://willmartian.com"
+  },
+  "homepage": "https://hdot.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willmartian/hdot"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "lib/plugin.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "tsc": "tsc",
+    "test": "uvu -r tsm test"
+  },
+  "dependencies": {
+    "hdot": "^0.0.4",
+    "rxjs": "^7.5.5"
+  },
+  "devDependencies": {
+    "tsm": "^2.2.1",
+    "uvu": "^0.5.3"
+  }
+}
