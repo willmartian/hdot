@@ -1,14 +1,19 @@
-
 import { isTemplateParam, rawTemplate } from "./utils";
-import type { Plugin, HTML } from "./types";
+import type { HTMLElements } from "./types/html";
 
-export type { Plugin, HTML, H }
+export type Plugin = {
+  attribute?: (tagName: string, key: string, args: any) => [string, any];
+};
 
 class PrivateState {
   private _plugins: Plugin[] = [];
 }
 
-type H = typeof PrivateState & HTML;
+export const setPlugins = (h: H, plugins: Plugin[]) => {
+  h["_plugins"] = plugins;
+};
+
+export type H = typeof PrivateState & HTMLElements;
 
 export const h: H = new Proxy(new PrivateState() as unknown as H, {
   get(target, key, reciever) {
@@ -20,12 +25,10 @@ export const h: H = new Proxy(new PrivateState() as unknown as H, {
 });
 
 class Hdot extends Function {
-  private tagName: string;
   private htmlString: string = "";
 
-  constructor(tagName, h: HTML) {
+  constructor(tagName, h: HTMLElements) {
     super();
-    this.tagName = tagName;
     this.htmlString = tagName + " ";
 
     const proxy = new Proxy(this, {
@@ -49,7 +52,7 @@ class Hdot extends Function {
           k = k.toLowerCase();
 
           let a = args;
-          for (const plugin of h['_plugins']) {
+          for (const plugin of h["_plugins"]) {
             if (plugin.attribute) {
               const [pluginKey, pluginArgs] = plugin.attribute(tagName, k, a);
               k = pluginKey;
@@ -78,7 +81,7 @@ class Hdot extends Function {
   }
 
   toString(...children: any[]) {
-    let args: string | any[] = children.join('');
+    let args: string | any[] = children.join("");
     if (isTemplateParam(...children)) {
       args = [rawTemplate(children[0], ...children.slice(1))];
     }
@@ -95,7 +98,3 @@ class Hdot extends Function {
     return this.toString(...children);
   }
 }
-
-export const setPlugins = (h: H, plugins: Plugin[]) => {
-  h['_plugins'] = plugins;
-};

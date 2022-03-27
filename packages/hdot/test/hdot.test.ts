@@ -18,9 +18,15 @@ test("children", () => {
     h.div(h.div, h.div(), h.div.toString(), h.div().toString(), h.div``),
     "<div><div></div><div></div><div></div><div></div><div></div></div>"
   );
-  assert.equal(h.div`Hello ${h.span`world!`}`, '<div>Hello <span>world!</span></div>')
-  assert.equal(h.div(`Hello ${h.span`world!`}`), '<div>Hello <span>world!</span></div>')
-  assert.equal(h.div(`Hello ${h.span}`), '<div>Hello <span></span></div>')
+  assert.equal(
+    h.div`Hello ${h.span`world!`}`,
+    "<div>Hello <span>world!</span></div>"
+  );
+  assert.equal(
+    h.div(`Hello ${h.span`world!`}`),
+    "<div>Hello <span>world!</span></div>"
+  );
+  assert.equal(h.div(`Hello ${h.span}`), "<div>Hello <span></span></div>");
 });
 
 test("attributes", () => {
