@@ -1,6 +1,6 @@
 {
   "name": "hdot",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A functional, buildless, and type-safe way to write HTML in JavaScript.",
   "keywords": [
     "html",
