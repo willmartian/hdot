@@ -10,10 +10,8 @@ const fs = require("fs");
 const { TypeDef, kebabToCamel } = require("./helpers");
 
 function init() {
-  const writePath = "./src/types/html.d.ts";
+  const writePath = "./src/types/html.ts";
   const readme = `// WARNING: This file was auto-generated and any changes will be overwritten.`;
-
-  //---
 
   const htmlSpec = getSpec([htmlSpecDef]);
   const specs = htmlSpec.specs.filter((spec) => !spec.name.includes(":"));
@@ -28,7 +26,7 @@ function init() {
 
 const attributeTypes = {
   Any: "string",
-  Boolean: "number",
+  Boolean: "boolean",
   NoEmptyAny: "string",
   OneLineAny: "string",
   Zero: "string",
@@ -53,16 +51,12 @@ const getAttrType = (attr, tagName = "TagName") => {
       ""
     );
     if (stringEnum.endsWith(" | ")) {
-      return wrap(stringEnum.slice(0, -3));
+      stringEnum = stringEnum.slice(0, -3);
     }
     return wrap(stringEnum);
   }
 
-  let strType = JSON.stringify(type);
-  strType =
-    attributeTypes[strType.startsWith('"') ? strType : `\`${strType}\``];
-  strType = strType === undefined ? "string" : strType;
-  return wrap(strType);
+  return wrap(attributeTypes[type.toString()] ?? "string");
 };
 
 const writeGlobalAttributes = (content, htmlSpec) => {
