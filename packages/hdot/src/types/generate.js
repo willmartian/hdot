@@ -33,7 +33,7 @@ const attributeTypes = {
   Number: "number",
   Uint: "number",
   DOMID: "string",
-  "<class-list>": "number",
+  "<class-list>": "string",
   TabIndex: "number",
   CustomElementName: "`${string}-${string}`",
 };

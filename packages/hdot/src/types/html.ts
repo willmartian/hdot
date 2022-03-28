@@ -337,7 +337,7 @@ type GlobalHTMLAttributes<TagName extends keyof HTMLElements> = {
   /** @link https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-translate */
   "translate": (value: "" | "yes" | "no") => HTMLElements[TagName];
   /** @link https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-class */
-  "class": (value: number) => HTMLElements[TagName];
+  "class": (value: string) => HTMLElements[TagName];
   /** @link https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-id */
   "id": (value: string) => HTMLElements[TagName];
   /** @link https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-slot */
