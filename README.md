@@ -10,11 +10,10 @@ A sensible way to write HTML in JavaScript.
 
 \* _not affiliated with the Hawaii Department of Transportation_
 
-
 ## [Read the docs](https://hdot.dev/)
 
 ```js
-import { h } from "hdot"; 
+import { h } from "hdot";
 
 h.div(
   h.h1`hdot`,
@@ -22,6 +21,11 @@ h.div(
   h.a.href("https://hdot.dev")`Read the docs.`
 );
 ```
+
 ```html
-<div><h1>hdot</h1><p>Type-safe HTML templates</p><a href="https://hdot.dev">Read the docs.</a></div>
+<div>
+  <h1>hdot</h1>
+  <p>Type-safe HTML templates</p>
+  <a href="https://hdot.dev">Read the docs.</a>
+</div>
 ```

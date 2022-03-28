@@ -20,6 +20,7 @@
   "scripts": {
     "size": "size-limit",
     "test": "npm run tsc && npm run size && lerna run test",
-    "tsc": "lerna run tsc"
+    "tsc": "lerna run tsc",
+    "prettier": "prettier --write ."
   }
 }

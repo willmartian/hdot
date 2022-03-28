@@ -1,8 +1,20 @@
 {
   "name": "hdot",
   "version": "0.0.4",
-  "description": "A zero-dependency, buildless, terse, and type-safe way to write HTML in JavaScript.",
-  "author": "willmartian <accounts@willmartian.com>",
+  "description": "A functional, buildless, and type-safe way to write HTML in JavaScript.",
+  "keywords": [
+    "html",
+    "template engine",
+    "jsx",
+    "jamstack",
+    "type-safe",
+    "functional"
+  ],
+  "author": {
+    "name": "willmartian",
+    "email": "hdot@willmartian.com",
+    "url": "https://willmartian.com"
+  },
   "homepage": "https://hdot.dev",
   "repository": {
     "type": "git",
@@ -20,7 +32,7 @@
   "scripts": {
     "tsc": "tsc",
     "test": "uvu -r tsm test",
-    "generate": "node src/types/generateSpecTypes.js"
+    "generate": "node src/types/generate.js"
   },
   "devDependencies": {
     "@markuplint/html-spec": "^2.4.0",

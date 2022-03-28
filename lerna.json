@@ -1,7 +1,4 @@
 {
-  "packages": [
-    "packages/*",
-    "packages/plugins/*"
-  ],
-  "version": "0.0.4"
+  "packages": ["packages/*", "packages/plugins/*"],
+  "version": "independent"
 }

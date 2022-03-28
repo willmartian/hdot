@@ -1,9 +1,13 @@
 {
+  "name": "@hdot/docs",
   "private": true,
   "version": "0.0.4",
-  "description": "> TODO: description",
-  "author": "willmartian <accounts@willmartian.com>",
-  "homepage": "",
+  "author": {
+    "name": "willmartian",
+    "email": "hdot@willmartian.com",
+    "url": "https://willmartian.com"
+  },
+  "homepage": "https://hdot.dev",
   "license": "MIT",
   "main": "lib/docs.js",
   "directories": {

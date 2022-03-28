@@ -2,7 +2,11 @@
   "name": "@hdot/validate",
   "version": "0.0.4",
   "description": "Validate HTML attributes based on the HTML spec",
-  "author": "willmartian <accounts@willmartian.com>",
+  "author": {
+    "name": "willmartian",
+    "email": "hdot@willmartian.com",
+    "url": "https://willmartian.com"
+  },
   "homepage": "https://hdot.dev",
   "repository": {
     "type": "git",
