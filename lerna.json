@@ -1,4 +1,19 @@
 {
   "packages": ["packages/*", "packages/plugins/*"],
-  "version": "independent"
+  "version": "independent",
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "**/CHANGELOG.md",
+        "**/node_modules/**",
+        "**/package.json",
+        "**/*.md",
+        "**/*.spec.*",
+        "**/*.stories.*"
+      ],
+      "conventionalCommits": true,
+      "message": "chore(release): publish",
+      "registry": "https://registry.npmjs.org"
+    }
+  }
 }
