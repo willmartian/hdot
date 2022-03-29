@@ -349,7 +349,7 @@ type GlobalHTMLAttributes<TagName extends keyof HTMLElements> = {
   /** @deprecated @link https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#attr-xml:space */
   "xml:space": (value: "default" | "preserve") => HTMLElements[TagName];
   [dataAttribute: `data${string}`]: (value: string | boolean | number) => HTMLElements[TagName];
-  (...children: children): HTMLElements[TagName];
+  (...children: children): string;
 };
 
 type GlobalAriaAttributes<TagName extends keyof HTMLElements> = {
