@@ -1,4 +1,4 @@
-import { Plugin } from "hdot";
+import type { Plugin } from "hdot";
 import { check } from "@markuplint/types";
 import { getSpec, getAttrSpecs } from "@markuplint/ml-spec";
 import * as htmlSpecDef from "@markuplint/html-spec";
