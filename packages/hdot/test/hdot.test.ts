@@ -43,4 +43,13 @@ test("attributes", () => {
   );
 });
 
+test("data attributes", () => {
+  assert.equal(h.div.dataName('test123')(), `<div data-name="test123"></div>`);
+});
+
+test("aria attributes", () => {
+  assert.equal(h.div.ariaLabel('test123')(), `<div aria-label="test123"></div>`);
+  assert.equal(h.div.ariaLabel('test123').ariaChecked('false')(), `<div aria-label="test123" aria-checked="false"></div>`);
+});
+
 test.run();

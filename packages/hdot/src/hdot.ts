@@ -24,6 +24,14 @@ export const h: H = new Proxy(new PrivateState() as unknown as H, {
   },
 });
 
+const getAttributeName = (rawName) => {
+  let name = rawName;
+  if (name.length > 4 && (name.startsWith("data") || name.startsWith("aria"))) {
+    name = name.slice(0, 4) + '-' + name.slice(4);
+  }
+  return name.toLowerCase();
+}
+
 class Hdot extends Function {
   private htmlString: string = "";
 
@@ -42,14 +50,7 @@ class Hdot extends Function {
           return Reflect.get(target, key, reciever);
         }
         return (args: any) => {
-          let k = key;
-          if (k === "className") {
-            k = "class";
-          }
-          if (k.startsWith("data") && k.length > 4) {
-            k = "data-" + k.slice(4);
-          }
-          k = k.toLowerCase();
+          let k = getAttributeName(key);
 
           let a = args;
           for (const plugin of h["_plugins"]) {
