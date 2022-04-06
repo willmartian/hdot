@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
+    "eleventy-plugin-automatic-noopener": "^2.0.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "@hdot/validate": "^0.0.7",
     "hdot": "^0.0.7",

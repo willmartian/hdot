@@ -1,23 +1,30 @@
-import type { Plugin } from "hdot";
+import type { TransformerPlugin, TreeNode } from "hdot/src/types";
 import { check } from "@markuplint/types";
 import { getSpec, getAttrSpecs } from "@markuplint/ml-spec";
 import * as htmlSpecDef from "@markuplint/html-spec";
 const htmlSpec = getSpec([htmlSpecDef]);
 
-const validate: Plugin = {
-  attribute: (tagName, key, args) => {
-    if (key.startsWith("data-")) {
-      return [key, args];
-    }
-    const type = getAttributeType(tagName, key);
-    const res = check(args, type);
-    if (!res.matched) {
-      console.error(res);
-    } else {
-      console.log(res);
-    }
-    return [key, args];
-  },
+const validate: TransformerPlugin = (tree: TreeNode) => {
+  const validateAttributes = (tree: TreeNode) => {
+    Object.keys(tree.attrs).forEach((key) => {
+      if (key.startsWith("data-")) {
+        return;
+      }
+      const type = getAttributeType(tree.tag, key);
+      const res = check(tree.attrs[key], type);
+      if (!res.matched) {
+        throw new Error(`hdot: ${res}`);
+      }
+    });
+    tree.content.forEach((content) => {
+      if (typeof content !== "string") {
+        validateAttributes(content);
+      }
+    });
+  };
+
+  validateAttributes(tree);
+  return tree;
 };
 
 const getAttributeType = (tagName: string, key: string) => {
@@ -27,7 +34,9 @@ const getAttributeType = (tagName: string, key: string) => {
   if (attrSpec) {
     return Array.isArray(attrSpec.type) ? attrSpec.type[0] : attrSpec.type;
   }
-  console.error(`Cant find attribute type of "${key}" on <${tagName}>`);
+  console.error(
+    `hdot: Cannot validate attribute type of "${key}" on <${tagName}>`
+  );
   return "Any";
 };
 

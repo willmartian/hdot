@@ -85,7 +85,7 @@ const writeGlobalAttributes = (content, htmlSpec) => {
     "[dataAttribute: `data${string}`]",
     `(value: string | boolean | number) => HTMLElements[TagName]`
   );
-  htmlDef.addProperty(`(...children: children)`, `string`);
+  htmlDef.addProperty(`(...children: children)`, `HTMLElements[TagName]`);
   content.push(htmlDef.toString());
 
   const ariaDef = new TypeDef(
