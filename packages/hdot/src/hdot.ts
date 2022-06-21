@@ -1,28 +1,22 @@
 import {
-  fakeBaseClass,
   isTemplateParam,
   rawTemplate,
   keyIsOmitted,
 } from "./utils";
-import { HTMLElements, PluginArray, TreeNode } from "./types";
-export * from "./types";
+import { BaseHTMLElements as HTMLElements, PluginArray, TreeNode } from "./types";
 
-export class hdot extends fakeBaseClass<HTMLElements>() {
-  constructor(plugins: PluginArray = []) {
-    super();
-
-    return new Proxy(this, {
-      get(target, key, reciever) {
-        if (keyIsOmitted(key, "toString")) {
-          return Reflect.get(target, key, reciever);
-        }
-        return new hdotElement(key, plugins);
-      },
-    }) as HTMLElements;
-  }
+export const hdot = <CustomElements = {}>(plugins: PluginArray = []) => {
+  return new Proxy({}, {
+    get(target, key, reciever) {
+      if (keyIsOmitted(key, "toString")) {
+        return Reflect.get(target, key, reciever);
+      }
+      return new hdotElement(key, plugins);
+    },
+  }) as HTMLElements;
 }
 
-export const h = new hdot();
+export const h = hdot();
 
 class hdotElement extends Function {
   private treeNode: TreeNode;

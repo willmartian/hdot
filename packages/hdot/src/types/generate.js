@@ -15,7 +15,9 @@ function init() {
 
   const htmlSpec = getSpec([htmlSpecDef]);
   const specs = htmlSpec.specs.filter((spec) => !spec.name.includes(":"));
-  const content = [readme];
+  const content = [
+    readme
+  ];
 
   writeElementMap(content, specs);
   writeGlobalAttributes(content, htmlSpec);
@@ -38,8 +40,9 @@ const attributeTypes = {
   CustomElementName: "`${string}-${string}`",
 };
 
-const getAttrType = (attr, tagName = "TagName") => {
-  const wrap = (str) => `(value: ${str}) => HTMLElements[${tagName}]`;
+const getAttrType = (attr, tagName) => {
+  const returnType = tagName === undefined ? `ReturnElement` : `BaseHTMLElements[${tagName}]`;
+  const wrap = (str) => `(value: ${str}) => ${returnType}`;
   const type = attr.type;
   if (!type) {
     return wrap("any");
@@ -61,11 +64,15 @@ const getAttrType = (attr, tagName = "TagName") => {
 
 const writeGlobalAttributes = (content, htmlSpec) => {
   content.push(
-    `type children = (string | TemplateStringsArray | HTMLElements[keyof HTMLElements])[];`
+    `type children = (string | TemplateStringsArray | BaseHTMLElements[keyof BaseHTMLElements])[]`
   );
 
   const htmlDef = new TypeDef(
-    `GlobalHTMLAttributes<TagName extends keyof HTMLElements>`
+    `GlobalHTMLAttributes<ReturnElement>`,
+    {
+      export: true,
+      isInterface: false,
+    }
   );
   const globalAttrs = htmlSpec.def["#globalAttrs"]["#HTMLGlobalAttrs"];
   for (const name in globalAttrs) {
@@ -83,13 +90,17 @@ const writeGlobalAttributes = (content, htmlSpec) => {
   }
   htmlDef.addProperty(
     "[dataAttribute: `data${string}`]",
-    `(value: string | boolean | number) => HTMLElements[TagName]`
+    `(value: string | boolean | number) => ReturnElement`
   );
-  htmlDef.addProperty(`(...children: children)`, `HTMLElements[TagName]`);
+  htmlDef.addProperty(`(...children: children)`, `ReturnElement`);
   content.push(htmlDef.toString());
 
   const ariaDef = new TypeDef(
-    `GlobalAriaAttributes<TagName extends keyof HTMLElements>`
+    `GlobalAriaAttributes<ReturnElement>`,
+    {
+      export: true,
+      isInterface: false,
+    }
   );
   htmlSpec.def["#ariaAttrs"].forEach((attr) => {
     ariaDef.addProperty(
@@ -103,7 +114,7 @@ const writeGlobalAttributes = (content, htmlSpec) => {
 };
 
 const writeElementMap = (content, specs) => {
-  const type = new TypeDef("HTMLElements", {
+  const type = new TypeDef("BaseHTMLElements", {
     export: true,
     isInterface: false,
   });
@@ -132,7 +143,7 @@ const writeElementDefs = (content, specs, htmlSpec) => {
     });
 
     getAttrSpecs(spec.name, htmlSpec)
-      .filter((attr) => attr.type !== "FunctionBody")
+      ?.filter((attr) => attr.type !== "FunctionBody")
       .filter(
         (attr) =>
           !(attr.name in htmlSpec.def["#globalAttrs"]["#HTMLGlobalAttrs"])
@@ -149,8 +160,10 @@ const writeElementDefs = (content, specs, htmlSpec) => {
     /**
      * @todo create reserved words type from global attributes
      */
-    type.combineWith(`GlobalAriaAttributes<"${spec.name}">`);
-    type.combineWith(`GlobalHTMLAttributes<"${spec.name}">`);
+
+    type.combineWith(`{ [key in keyof GlobalHTMLAttributes<any>]: GlobalHTMLAttributes<${spec.name}Element>[key] }`)
+    type.combineWith(`{ [key in keyof GlobalAriaAttributes<any>]: GlobalAriaAttributes<${spec.name}Element>[key] }`)
+    type.combineWith(`{ (...children: children): ${spec.name}Element; }`)
 
     content.push(type.toString());
   });

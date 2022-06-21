@@ -4,7 +4,7 @@ import { hdot } from "hdot";
 import validate from "../src/validate";
 
 test("basic", () => {
-  const h = new hdot([validate]);
+  const h = hdot([validate]);
 
   assert.throws(() => {
     h.div.id("hello world").toString();
