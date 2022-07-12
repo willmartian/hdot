@@ -15,3 +15,12 @@ export const isTemplateParam = (...args: any[]): boolean => {
   );
   //&& Array.isArray(args[1]);
 };
+
+/**
+ * @param key An object's property key we are trying to access
+ * @param omitted Keys on which we Reflect the default behavior
+ */
+export const keyIsOmitted = (
+  key: string | symbol,
+  ...omitted: string[]
+): key is symbol => typeof key !== "string" || omitted.includes(key);

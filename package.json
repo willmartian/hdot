@@ -10,7 +10,7 @@
   },
   "size-limit": [
     {
-      "limit": "1 kb",
+      "limit": "1.5 kb",
       "path": "./packages/hdot/lib/hdot.js"
     },
     {

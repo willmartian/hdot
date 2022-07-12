@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @hdot/validate
 
-
-
-
-
 ## [0.0.6](https://github.com/willmartian/hdot/compare/@hdot/validate@0.0.5...@hdot/validate@0.0.6) (2022-03-29)
 
 **Note:** Version bump only for package @hdot/validate
