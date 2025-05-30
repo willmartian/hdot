@@ -1,6 +1,6 @@
 import { test } from "uvu";
 import * as assert from "uvu/assert";
-import { h } from "../src/hdot";
+import h from "../src/hdot";
 
 test("basic", () => {
   assert.equal(h.div(), "<div></div>");
